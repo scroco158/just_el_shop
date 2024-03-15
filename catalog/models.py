@@ -9,6 +9,7 @@ class Product(models.Model):
     price = models.FloatField(verbose_name='Стоимость продукта')
     created_at = models.DateField(verbose_name='Дата создания продукта')
     updated_at = models.DateField(verbose_name='Дата изменения продукта')
+    manufactured_at = models.DateField(verbose_name='Дата производства', null=True)
 
     def __str__(self):
         return f'{self.name}'
