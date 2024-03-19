@@ -1,7 +1,11 @@
 from django.urls import path
-from . import views
+
+#  from catalog import views
+#  from . import views
+from .views import *
+
 
 urlpatterns = [
-    path('', views.home_cont),
-    path('contacts/', views.contacts_cont)
+    path('', home_cont),
+    path('contacts/', contacts_cont)
 ]
