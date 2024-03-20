@@ -4,7 +4,12 @@ from catalog.models import Product
 
 
 def home_cont(requests):
-    return render(requests,'catalog/home.html')
+
+    all_prod = Product.objects.all()
+    context = {
+        'objects_list': all_prod
+    }
+    return render(requests,'catalog/home.html', context)
 
 
 def contacts_cont(requests):
