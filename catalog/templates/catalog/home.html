@@ -1,8 +1,9 @@
 {% extends 'catalog/base.html' %}
+{% load my_tags  %}
         <!-- карточка начало -->
         {% block content%}
         <div class="card" style="width: 20rem;">
-          <img src="/media/{{object.picture}}" class="card-img-top border border-3 " alt="...">
+          <img src="{{object.picture|mymedia}}" class="card-img-top border border-3 " alt="...">
           <div class="card-body">
             <h5 class="card-title">{{object.name}}</h5>
             <p class="card-text">{{object.description|truncatechars:100}}</p>
