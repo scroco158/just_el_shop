@@ -1,24 +1,30 @@
 {% extends 'catalog/base.html' %}
 {% load my_tags  %}
-        <!-- карточка начало -->
-        {% block content%}
-        <div class="card" style="width: 20rem;">
-          <img src="{{object.picture|mymedia}}" class="card-img-top border border-3 " alt="...">
-          <div class="card-body">
-            <h5 class="card-title">{{object.name}}</h5>
-            <p class="card-text">{{object.description|truncatechars:100}}</p>
+
+     {% block content%}
+     <div class="container">
+          <div class="row text-center">
+              {% for object in objects_list%}
+              <div class="col-3">
+                <div class="card" style="width: 20rem;">
+                  <img src="{{object.picture|mymedia}}" class="card-img-top border border-3 " alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">{{object.name}}</h5>
+                    <p class="card-text">{{object.description|truncatechars:100}}</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">ID товара__________{{object.id}}</li>
+                    <li class="list-group-item">Категория товара___{{object.category}}</li>
+                    <li class="list-group-item">Цена товара________{{object.price}}</li>
+                    <li class="list-group-item">Товар создан_______{{object.created_at}}</li>
+                    <li class="list-group-item">Товар обновлен_____{{object.updated_at}}</li>
+                  </ul>
+                  <div class="card-body">
+                    <a href="#" class="card-link">Приобрести</a>
+                    <a href="#" class="card-link">Добавить в корзину</a>
+                </div>
+              </div>
           </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">ID товара__________{{object.id}}</li>
-            <li class="list-group-item">Категория товара___{{object.category}}</li>
-            <li class="list-group-item">Цена товара________{{object.price}}</li>
-            <li class="list-group-item">Товар создан_______{{object.created_at}}</li>
-            <li class="list-group-item">Товар обновлен_____{{object.updated_at}}</li>
-          </ul>
-          <div class="card-body">
-            <a href="#" class="card-link">Приобрести</a>
-            <a href="#" class="card-link">Добавить в корзину</a>
-          </div>
-      </div>
-      {% endblock %}
-      <!-- карточка конец -->
+          {% endfor %}
+     </div>
+     {% endblock %}
