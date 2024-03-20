@@ -33,3 +33,6 @@ def sin_prod(request, prod_id):
         'object': product
         }
     return render(request, 'catalog/single_product.html', context)
+
+def new_prod(request):
+    return render(request, 'catalog/new_product.html')
