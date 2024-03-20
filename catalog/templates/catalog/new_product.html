@@ -3,7 +3,20 @@
 {% block content%}
 
 <div class="container">
-  <!-- Content here -->
+      <div class="col-6">
+            <div class="box-frame border border-primary h-100 m-2 p-2">
+              <h2>New product</h2>
+              <br>
+              <form method="post">
+                  {% csrf_token %}
+                  <h6>Название</h6>
+                  <input type="text" name="name"><br>
+                  <h6>Описание</h6>
+                  <textarea name="description"></textarea><br>
+                  <h6>Цена</h6>
+                  <input type="number" name="price">
+                  <input type="submit" value="Отправить">
+              </form>
 </div>
 
-{% endblock%}
+{% endblock %}

@@ -34,5 +34,20 @@ def sin_prod(request, prod_id):
         }
     return render(request, 'catalog/single_product.html', context)
 
+
 def new_prod(request):
+
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        description = request.POST.get('description')
+        price = request.POST.get('price')
+
+        new_pr = Product()
+        new_pr.name = name
+        new_pr.description = description
+        new_pr.price = price
+        print(new_pr.__dict__)
+
+        new_pr.save()
+
     return render(request, 'catalog/new_product.html')
