@@ -6,8 +6,8 @@ from .views import *
 app_name = MainConfig.name
 
 urlpatterns = [
-    path('', home_cont, name='home'),
+    path('', ProductListView.as_view(), name='home'),
     path('contacts/', contacts_cont),
-    path('sin_prod/<int:prod_id>', sin_prod),  # маршрут для вывода продукта по индексу
+    path('one_product/<int:pk>', ProductDetailView.as_view(), name='one_product'),
     path('new_prod/', new_prod)
 ]

@@ -1,15 +1,6 @@
 from django.shortcuts import render
-
+from django.views.generic import ListView, DetailView
 from catalog.models import Product
-
-
-def home_cont(requests):
-
-    all_prod = Product.objects.all()
-    context = {
-        'objects_list': all_prod
-    }
-    return render(requests,'catalog/home.html', context)
 
 
 def contacts_cont(requests):
@@ -26,28 +17,9 @@ def contacts_cont(requests):
     return render(requests, 'catalog/contacts.html')
 
 
-def sin_prod(request, prod_id):
-
-    product = Product.objects.get(pk=prod_id)
-    context = {
-        'object': product
-        }
-    return render(request, 'catalog/single_product.html', context)
+class ProductListView(ListView):  # ----_list.html
+    model = Product
 
 
-def new_prod(request):
-
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        description = request.POST.get('description')
-        price = request.POST.get('price')
-
-        new_pr = Product()
-        new_pr.name = name
-        new_pr.description = description
-        new_pr.price = price
-        print(new_pr.__dict__)
-
-        new_pr.save()
-
-    return render(request, 'catalog/new_product.html')
+class ProductDetailView(DetailView):  # ---_detail.html
+    model = Product
