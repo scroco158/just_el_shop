@@ -25,6 +25,13 @@ class BlogListView(ListView):
 class BlogDetailView(DetailView):
     model = BlogRecord
 
+    def get_object(self, queryset=None):
+        self.object = super().get_object(queryset)
+        self.object.view_count += 1
+        self.object.save()
+        return self.object
+
+
 
 class BlogUpdateView(UpdateView):
     model = BlogRecord
