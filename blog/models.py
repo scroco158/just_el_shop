@@ -9,7 +9,7 @@ class BlogRecord(models.Model):
     body = models.TextField(verbose_name='содержимое', **NULLABLE)
     picture = models.ImageField(upload_to='bloglpictures', verbose_name='фото', **NULLABLE)
     published_at = models.DateField(verbose_name='дата публикации', **NULLABLE)
-    is_published = models.BooleanField(default=True, verbose_name='опубликовано')
+    is_published = models.BooleanField(default=False, verbose_name='опубликовано')
     view_count = models.IntegerField(default=0, verbose_name='количество просмотров')
 
     def __str__(self):
