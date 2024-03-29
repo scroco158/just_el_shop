@@ -11,7 +11,9 @@
         <h5 class="my-0 mr-md-auto font-weight-normal">EL-SHOP</h5>
         <nav class="ms-5">
             <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:home' %}">Посмотреть каталог</a>
-            <a class="p-2 btn btn-outline-primary" href="/new_prod/">Занести новый товар</a>
+            <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:home' %}">Добавить новый продукт</a>
+            <a class="p-2 btn btn-outline-primary" href="{% url 'blog:list' %}">Посмотреть блог</a>
+            <a class="p-2 btn btn-outline-primary" href="{% url 'blog:create_record' %}">Добавить новую запись в блог</a>
             <a class="p-2 btn btn-outline-primary" href="/contacts/">Контакты</a>
         </nav>
     </div>
