@@ -21,6 +21,11 @@ class BlogCreateView(CreateView):
 class BlogListView(ListView):
     model = BlogRecord
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        queryset = queryset.filter(is_published=True)
+        return queryset
+
 
 class BlogDetailView(DetailView):
     model = BlogRecord
