@@ -11,3 +11,10 @@ class BlogRecord(models.Model):
     published_at = models.DateField(verbose_name='дата публикации', **NULLABLE)
     is_published = models.BooleanField(default=True, verbose_name='опубликовано')
     view_count = models.IntegerField(default=0, verbose_name='количество просмотров')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'запись'
+        verbose_name_plural = 'записи'
