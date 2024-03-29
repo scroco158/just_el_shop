@@ -43,10 +43,14 @@ class BlogUpdateView(UpdateView):
     fields = ('title', 'body', 'picture', 'published_at', 'is_published')
     success_url = reverse_lazy('blog:list')
 
+    def get_success_url(self):
+        return reverse('blog:one_record', args=[self.kwargs.get('pk')])
+
 
 class BlogDeleteView(DeleteView):
     model = BlogRecord
     success_url = reverse_lazy('blog:list')
+
 
 def status_change(request, pk):
     one_rec = get_object_or_404(BlogRecord, pk=pk)
