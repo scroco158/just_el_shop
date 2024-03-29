@@ -9,4 +9,5 @@ urlpatterns = [
     path('', BlogListView.as_view(), name='list'),
     path('one_record/<int:pk>', BlogDetailView.as_view(), name='one_record'),
     path('edit/<int:pk>', BlogUpdateView.as_view(), name='update_record'),
+    path('delete/<int:pk>', BlogDeleteView.as_view(), name='delete_record')
     ]

@@ -19,7 +19,7 @@
                   <div class="card-body">
                     <a href="{% url 'blog:one_record' object.pk %}" class="card-link">View</a>
                     <a href="{% url 'blog:update_record' object.pk %}" class="card-link">Edit</a>
-                    <a href="#" class="card-link">Del</a>
+                    <a href="{% url 'blog:delete_record' object.pk %}" class="card-link">Del</a>
                 </div>
               </div>
           </div>

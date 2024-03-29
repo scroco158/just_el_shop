@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
-from django.views.generic import CreateView, ListView, DetailView, UpdateView
+from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 from blog.models import BlogRecord
 
 
@@ -22,3 +22,11 @@ class BlogUpdateView(UpdateView):
     model = BlogRecord
     fields = ('title', 'body', 'picture', 'published_at', 'is_published')
     success_url = reverse_lazy('blog:list')
+
+
+class BlogDeleteView(DeleteView):
+    model = BlogRecord
+    success_url = reverse_lazy('blog:list')
+
+
+
