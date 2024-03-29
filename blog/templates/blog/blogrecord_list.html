@@ -22,9 +22,9 @@
                     <a href="{% url 'blog:delete_record' object.pk %}" class="card-link">Del</a>
                 </div>
                 {% if object.is_published %}
-                    <a class="btn btn-warning" href="#">Пометить не опубликованным</a>
+                    <a class="btn btn-warning" href="{% url 'blog:status_change' object.pk %}">Пометить не опубликованным</a>
                 {% else %}
-                    <a class="btn btn-success" href="#">Пометить опубликованным</a>
+                    <a class="btn btn-success" href="{% url 'blog:status_change' object.pk %}">Пометить опубликованным</a>
                 {% endif %}
               </div>
           </div>

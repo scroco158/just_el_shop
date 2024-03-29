@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 from pytils.translit import slugify
@@ -48,5 +48,13 @@ class BlogDeleteView(DeleteView):
     model = BlogRecord
     success_url = reverse_lazy('blog:list')
 
+def status_change(request, pk):
+    one_rec = get_object_or_404(BlogRecord, pk=pk)
+    if one_rec.is_published:
+        one_rec.is_published = False
+    else:
+        one_rec.is_published =True
+    one_rec.save()
+    return redirect(reverse('blog:list'))
 
 
