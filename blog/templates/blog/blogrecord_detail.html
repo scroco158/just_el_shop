@@ -3,19 +3,26 @@
 
      {% block content %}
      <div class="container">
-          <div class="row text-center">
+         <div class="row">
               <div class="col-6">
-                <div class="card" style="width: 20rem;">
+                <div class="card">
+                  <h5 class="card-title">{{object.title}}</h5>
                   <img src="{{object.picture|mymedia}}" class="card-img-top border border-3 " alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">{{object.title}}</h5>
-                    <p class="card-text">{{object.body}}</p>
-                  </div>
                   <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Опубликовано___{{object.published_at}}</li>
-                    <li class="list-group-item">Просмотров_____{{object.view_count}}</li>
+                    <li class="list-group-item">Опубликовано: {{object.published_at}}</li>
+                    <li class="list-group-item">Просмотров: {{object.view_count}}</li>
                   </ul>
                 </div>
-          </div>
+              </div>
+
+             <div class="col-6">
+                  <div class="card-body">
+
+                    <p class="card-text">{{object.body}}</p>
+                  </div>
+              </div>
+
+         </div>
+
      </div>
      {% endblock %}
