@@ -37,7 +37,6 @@ class BlogDetailView(DetailView):
         return self.object
 
 
-
 class BlogUpdateView(UpdateView):
     model = BlogRecord
     fields = ('title', 'body', 'picture', 'published_at', 'is_published')
