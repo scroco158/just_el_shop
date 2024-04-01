@@ -3,6 +3,7 @@ from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 from pytils.translit import slugify
 from blog.models import BlogRecord
+from blog.services import send_information_mail
 
 
 class BlogCreateView(CreateView):
@@ -33,6 +34,8 @@ class BlogDetailView(DetailView):
     def get_object(self, queryset=None):
         self.object = super().get_object(queryset)
         self.object.view_count += 1
+        if self.object.view_count == 20:              # отправка письма по достижению
+            send_information_mail(self.object.title)  # определенного кол-ва просмотров
         self.object.save()
         return self.object
 
