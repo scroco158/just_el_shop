@@ -1,7 +1,6 @@
 ### для запуска приложения необходимо:
 ### в файле config/settings.py
 
-
 EMAIL_HOST = 'smtp.mail.ru'
 #### изменить адрес который будет использоваться
 
@@ -13,8 +12,6 @@ EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')  
 #### создать переменную окружения пароль доступа для стороннего приложения  
-
-
 
 
 
