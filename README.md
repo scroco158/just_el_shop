@@ -1,17 +1,18 @@
-### для запуска приложения необходимо:
-### в файле config/settings.py
+#### для запуска приложения необходимо:
+#### в файле config/settings.py
 
-EMAIL_HOST = 'smtp.mail.ru'
+
 #### изменить адрес который будет использоваться
+EMAIL_HOST = 'smtp.mail.ru'
 
-EMAIL_PORT = '465'                                      
 #### изменить порт на который будет использоваться
+EMAIL_PORT = '465'                                      
 
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 #### создать переменную окружения это эл.адрес с которого будет происходить рассылка
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')  
 #### создать переменную окружения пароль доступа для стороннего приложения  
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')  
 
 
 
