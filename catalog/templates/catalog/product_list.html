@@ -21,7 +21,7 @@
                   </ul>
                   <div class="card-body">
                     <a href="{% url 'catalog:one_product' object.pk %}" class="card-link">View</a>
-                    <a href="#" class="card-link">Edit</a>
+                    <a href="{% url 'catalog:update_product' object.pk %}" class="card-link">Edit</a>
                     <a href="#" class="card-link">Del</a>
                 </div>
               </div>

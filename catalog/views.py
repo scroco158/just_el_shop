@@ -1,5 +1,8 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, TemplateView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView
+
+from catalog.forms import ProductForm
 from catalog.models import Product
 
 # def contacts_cont(requests):
@@ -26,3 +29,9 @@ class ProductListView(ListView):  # ----_list.html
 
 class ProductDetailView(DetailView):  # ---_detail.html
     model = Product
+
+
+class ProductUpdateView(UpdateView):  # ---_form.html
+    model = Product
+    form_class = ProductForm
+    success_url = reverse_lazy('catalog:home')

@@ -34,7 +34,7 @@ class BlogDetailView(DetailView):
     def get_object(self, queryset=None):
         self.object = super().get_object(queryset)
         self.object.view_count += 1
-        if self.object.view_count == 100:              # отправка письма по достижению
+        if self.object.view_count == 30:              # отправка письма по достижению
             send_information_mail(self.object.title)  # определенного кол-ва просмотров
         self.object.save()
         return self.object
