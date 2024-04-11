@@ -35,9 +35,10 @@ class ProductDetailView(DetailView):  # ---_detail.html
         context = super().get_context_data(**kwargs)
         ver = Version.objects.filter(product=self.object)  # выборка всех версий текущего продукта
         v_pr = []
+        current_v_pr = []
         for v in ver:
             if v.is_current:
-                current_v_pr = v.name
+                current_v_pr.append(v.name)
             v_pr.append(v.name)
             print(v.name)
         print(v_pr)

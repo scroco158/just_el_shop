@@ -36,7 +36,9 @@
                       <p class="fw-bold fs-4">Сейчас в продаже</p>
                   </div>
                   <div class="card-body">
-                          <p>{{current_v_pr}}</p>
+                      {% for v in current_v_pr %}
+                          <p>{{v}}</p>
+                      {% endfor %}
                   </div>
                 </div>
               <a href="{% url 'catalog:create_version' %}" class="btn btn-primary m-2">Добавить новую версию товара</a>
