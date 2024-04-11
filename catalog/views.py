@@ -36,10 +36,13 @@ class ProductDetailView(DetailView):  # ---_detail.html
         ver = Version.objects.filter(product=self.object)  # выборка всех версий текущего продукта
         v_pr = []
         for v in ver:
+            if v.is_current:
+                current_v_pr = v.name
             v_pr.append(v.name)
             print(v.name)
         print(v_pr)
-        context['v_pr'] = v_pr
+        context['v_pr'] = v_pr  # отправляю список версий продукта в шаблон
+        context['current_v_pr'] = current_v_pr
 
         return context
 

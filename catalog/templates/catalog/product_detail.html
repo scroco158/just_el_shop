@@ -4,6 +4,7 @@
 
           <div class="card" style="width: 20rem;">
               <img src="/media/{{object.picture}}" class="card-img-top border border-3 " alt="...">
+
               <div class="card-body">
                 <h5 class="card-title">{{object.name}}</h5>
                 <p class="card-text">{{object.description}}</p>
@@ -24,12 +25,18 @@
           <div class="col-6">
               <div class="card">
                   <div class="card-header">
-                      <p>Возможные версии товара</p>
+                      <p class="fw-bold fs-4" >Возможные версии товара</p>
                   </div>
                   <div class="card-body">
-                      {% for v in {{v_pr}} %}
-                      <p>v</p>
+                      {% for v in v_pr %}
+                          <p>{{v}}</p>
                       {% endfor %}
+                  </div>
+                  <div class="card-header">
+                      <p class="fw-bold fs-4">Сейчас в продаже</p>
+                  </div>
+                  <div class="card-body">
+                          <p>{{current_v_pr}}</p>
                   </div>
                 </div>
           </div>
