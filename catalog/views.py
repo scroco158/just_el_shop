@@ -35,3 +35,9 @@ class ProductUpdateView(UpdateView):  # ---_form.html
     model = Product
     form_class = ProductForm
     success_url = reverse_lazy('catalog:home')
+
+
+class ProductCreateView(CreateView):  # ---_form.html
+    model = Product
+    form_class = ProductForm
+    success_url = reverse_lazy('catalog:home')
