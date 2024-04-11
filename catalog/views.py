@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView, DeleteView
 
 from catalog.forms import ProductForm
 from catalog.models import Product
@@ -41,3 +41,9 @@ class ProductCreateView(CreateView):  # ---_form.html
     model = Product
     form_class = ProductForm
     success_url = reverse_lazy('catalog:home')
+
+
+class ProductDeleteView(DeleteView):  # ---_confirm_delete.html
+    model = Product
+    success_url = reverse_lazy('catalog:home')
+
