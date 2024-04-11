@@ -1,6 +1,6 @@
 from django import forms
 
-from catalog.models import Product
+from catalog.models import Product, Version
 
 
 class ProductForm(forms.ModelForm):
@@ -26,3 +26,10 @@ class ProductForm(forms.ModelForm):
             'радар' in cleaned_data):
             raise forms.ValidationError('Не корректное название продукта')
         return cleaned_data
+
+
+class VersionForm(forms.ModelForm):
+    class Meta:
+        model = Version
+        fields = '__all__'
+
