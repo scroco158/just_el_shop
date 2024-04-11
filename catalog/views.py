@@ -3,7 +3,8 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView, DeleteView
 
 from catalog.forms import ProductForm
-from catalog.models import Product
+from catalog.models import Product, Version
+
 
 # def contacts_cont(requests):
 #
@@ -29,6 +30,18 @@ class ProductListView(ListView):  # ----_list.html
 
 class ProductDetailView(DetailView):  # ---_detail.html
     model = Product
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        ver = Version.objects.filter(product=self.object)  # выборка всех версий текущего продукта
+        v_pr = []
+        for v in ver:
+            v_pr.append(v.name)
+            print(v.name)
+        print(v_pr)
+        context['v_pr'] = v_pr
+
+        return context
 
 
 class ProductUpdateView(UpdateView):  # ---_form.html
