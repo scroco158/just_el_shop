@@ -1,3 +1,4 @@
+from django.forms import inlineformset_factory, forms
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView, DeleteView
@@ -52,6 +53,24 @@ class ProductUpdateView(UpdateView):  # ---_form.html
     model = Product
     form_class = ProductForm
     success_url = reverse_lazy('catalog:home')
+
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data()
+        VersionFormset = inlineformset_factory(Product, Version, form=VersionForm, extra=1)
+        if self.request.method == 'POST':
+            formset = VersionFormset(self.request.POST, instance=self.object)
+        else:
+            formset = VersionFormset(instance=self.object)
+        # print('форм сет', formset.__dict__)
+        context_data['formset'] = formset
+        return context_data
+
+    def form_valid(self, form):
+        context = self.get_context_data()
+        formset = context['formset']
+        if formset.is_valid():
+            formset.save()
+        return super().form_valid(form)
 
 
 class ProductCreateView(CreateView):  # ---_form.html

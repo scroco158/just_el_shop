@@ -1,18 +1,28 @@
 {% extends 'catalog/base.html' %}
 
 {% block content%}
+<form method="post" enctype="multipart/form-data">
 <div class="container-fluid">
-    <div class="col">
-        <div class="d-flex justify-content-center">
+<div class="row">
 
-                    <form method="post" enctype="multipart/form-data">
-                        {% csrf_token%}
-                        {{ form.as_p }}
-                        <button type="submit">
-                            Сохранить
-                        </button>
-                    </form>
-            </div>
-        </div>
+    <div class="col-6">
+
+            {% csrf_token%}
+            {{ form.as_p }}
+            <button type="submit">
+                Сохранить
+            </button>
+    </div>
+
+    <div class="col-6">
+        {{formset.management_form}}
+        {% for form in formset.forms %}
+        {{form.as_p}}
+        {% endfor %}
+    </div>
+
 </div>
+</div>
+</form>
+
 {% endblock%}>
