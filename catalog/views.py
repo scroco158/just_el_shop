@@ -69,6 +69,9 @@ class ProductUpdateView(UpdateView):  # ---_form.html
         context = self.get_context_data()
         formset = context['formset']
         if formset.is_valid():
+            # cur_ver = Version.objects.filter(product=self.object, is_current=True)
+            # if len(cur_ver) > 1:
+            #     raise ValueError('More than one version')
             formset.save()
         return super().form_valid(form)
 
