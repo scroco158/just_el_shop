@@ -141,3 +141,7 @@ EMAIL_USE_SSL = True
 
 # настройка модели пользователя для аутентификации
 AUTH_USER_MODEL = 'users.User'
+
+# настройка редиректов
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
