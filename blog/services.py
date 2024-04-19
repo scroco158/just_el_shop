@@ -6,10 +6,10 @@ from config import settings
 
 def send_information_mail(post_name):
 
-    email_from = os.getenv('EMAIL_HOST_USER')
-    print(email_from)
-    print(settings.EMAIL_HOST_USER)
-    print(settings.EMAIL_HOST_PASSWORD)
+    email_from = settings.EMAIL_HOST_USER
+    # print(email_from)
+    # print(settings.EMAIL_HOST_USER)
+    # print(settings.EMAIL_HOST_PASSWORD)
 
     send_mail(
         '100 просмотров',
