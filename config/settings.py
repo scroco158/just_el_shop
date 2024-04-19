@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     'catalog',
     'blog',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -132,9 +133,11 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 # настройка почты
-
 EMAIL_HOST = 'smtp.mail.ru'
 EMAIL_PORT = '465'
 EMAIL_HOST_USER = 'scroco@mail.ru'            # os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = 'zE1GA679BKBgaz2kiFRa'  # os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_USE_SSL = True
+
+# настройка модели пользователя для аутентификации
+AUTH_USER_MODEL = 'users.User'
