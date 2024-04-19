@@ -15,16 +15,11 @@ class ProductForm(forms.ModelForm):
 
     def clean_name(self):
         cleaned_data = self.cleaned_data['name']
-        if ('казино' in cleaned_data or
-            'криптовалюта' in cleaned_data or
-            'крипта' in cleaned_data or
-            'биржа' in cleaned_data or
-            'дешево' in cleaned_data or
-            'бесплатно' in cleaned_data or
-            'обман' in cleaned_data or
-            'полиция' in cleaned_data or
-            'радар' in cleaned_data):
-            raise forms.ValidationError('Не корректное название продукта')
+        check_words = ['казино', 'криптовалюта', 'крипта', 'биржа', 'дешево',
+                       'бесплатно', 'обман', 'полиция', 'радар']
+        for word in check_words:
+            if cleaned_data.__contains__(word):
+                raise forms.ValidationError('Не корректное название продукта')
         return cleaned_data
 
 
