@@ -9,10 +9,14 @@
     <div class="col-6">
             {% csrf_token%}
             {{ form.as_p }}
-
             <button type="submit">
                 Войти
             </button>
+    </div>
+
+
+    <div class="col-6">
+         <p><a href="{% url 'users:password-reset' %}" class="btn btn-primary">Восстановить пароль</a></p>
     </div>
 
 
