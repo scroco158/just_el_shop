@@ -11,3 +11,9 @@ class UserCreateView(CreateView):
     model = User
     form_class = UserRegisterForm
     success_url = reverse_lazy('users:login')
+
+    def form_valid(self, form):
+        user = form.save()
+        user.is_active = False
+
+        user.save()

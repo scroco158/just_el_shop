@@ -14,6 +14,7 @@ class User(AbstractUser):
                                help_text='Required. Inform a valid country.', **NULLABLE)
     avatar = models.ImageField(upload_to="users/avatars/", verbose_name="Avatar",
                                help_text="Upload your avatar.", ** NULLABLE)
+    token = models.CharField(max_length=100, verbose_name="Token", **NULLABLE)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
