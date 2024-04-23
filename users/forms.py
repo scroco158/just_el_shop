@@ -6,4 +6,4 @@ class UserRegisterForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['email', 'password1', 'password2']
-        #fields = ('__all__')
+        # fields = ('__all__')

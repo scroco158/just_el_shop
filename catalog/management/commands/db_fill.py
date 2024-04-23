@@ -17,7 +17,7 @@ class Command(BaseCommand):
     def json_read_products():
         # Здесь мы получаем данные из фикстурв с продуктами
 
-        with open ('prod_data.json', 'r') as jsonfile:
+        with open('prod_data.json', 'r') as jsonfile:
             data = json.load(jsonfile)
             return data
 

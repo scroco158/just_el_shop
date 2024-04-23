@@ -13,4 +13,3 @@ class Command(BaseCommand):
         user.is_staff = True
         user.is_active = True
         user.save()
-

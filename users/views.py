@@ -1,7 +1,5 @@
 import random
 import string
-
-from django.contrib.auth.forms import UserCreationForm
 from django.core.mail import send_mail
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
@@ -61,6 +59,4 @@ def password_reset(request):
             from_email=settings.EMAIL_HOST_USER,
             recipient_list=[user.email]
         )
-        success_url = reverse_lazy('users:login')
     return render(request, 'users/password_reset.html')
-
