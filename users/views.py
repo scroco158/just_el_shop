@@ -1,6 +1,7 @@
 import random
 import string
 from django.core.mail import send_mail
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView
@@ -43,12 +44,17 @@ def email_verification(request, token):
 
 
 def password_reset(request):
-    """ Создагие нового пароля пользователя по электронному адресу"""
+    """ Создание нового пароля пользователя по электронному адресу"""
 
     if request.method == 'POST':
         email_address = request.POST.get('email_address')
         print(email_address)
-        user = get_object_or_404(User, email=email_address)   # как тут обработать, что бы не вылетала по 404, а перезапрашивала емэил
+        user = User.objects.filter(email=email_address).first()
+
+        if user is None:
+            return render(request, 'users/password_reset.html',
+                          {'error_message': 'Пользователя с такой почтой не существует'})
+
         new_password = ''.join(random.choices(string.ascii_uppercase + string.digits + string.ascii_lowercase, k=8))
         print(new_password)
         user.set_password(new_password)
@@ -59,4 +65,8 @@ def password_reset(request):
             from_email=settings.EMAIL_HOST_USER,
             recipient_list=[user.email]
         )
+
+        success_url = reverse_lazy('users:login')
+        return HttpResponseRedirect(success_url)
+
     return render(request, 'users/password_reset.html')
