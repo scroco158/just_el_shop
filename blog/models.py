@@ -19,4 +19,3 @@ class BlogRecord(models.Model):
         verbose_name = 'запись'
         verbose_name_plural = 'записи'
         ordering = ["published_at"]
-

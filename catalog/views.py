@@ -1,6 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.forms import inlineformset_factory, forms
-from django.shortcuts import render
+from django.forms import inlineformset_factory
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView, DeleteView
 
@@ -98,4 +97,3 @@ class VersionCreateView(LoginRequiredMixin, CreateView):
     model = Version
     form_class = VersionForm
     success_url = reverse_lazy('catalog:home')
-
