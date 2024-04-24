@@ -27,7 +27,13 @@ EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 Что делаю:
 1. Создаю новое поле в модели Product (is_moderated - продукт прошел модерацию и может быть опубликован на сайте
    по умолчанию False. Только группа модераторы может поменять)
-2. 
+2. Создаю кастомные разрешения для трех доступов из задания  
+   permissions = [
+            ('can_publish_product', 'Can publish product'),
+            ('can_change_description', 'Can change description'),
+            ('can_change_category', 'Can change category'),
+        ]
+3. 
 
 
 
