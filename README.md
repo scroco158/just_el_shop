@@ -1,16 +1,11 @@
 для запуска приложения необходимо:
 в файле config/settings.py
-
-
 EMAIL_HOST = 'smtp.mail.ru'
 изменить адрес который будет использоваться
-
 EMAIL_PORT = '465'                                      
 изменить порт на который будет использоваться
-
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 создать переменную окружения это эл.адрес с которого будет происходить рассылка
-
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')  
 создать переменную окружения пароль доступа для стороннего приложения  
 
@@ -33,7 +28,18 @@ EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
             ('can_change_description', 'Can change description'),
             ('can_change_category', 'Can change category'),
         ]
-3. 
+3. Добавил в группу 2 пользователей с is_active True
+4. Сделал форму для вывода информации модератору из 3 полей
+5. Прописал логику выбора формы в view catalog
+
+И вот вопрос
+  - Все что идет через форм сет тоже выводится и модератор может изменять Это же не правильно??
+  - Как избежать отображения формсета??
+
+    И 
+
+
+
 
 
 
