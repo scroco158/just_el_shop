@@ -14,6 +14,7 @@ class Product(models.Model):
     created_at = models.DateField(verbose_name='Дата создания продукта', **NULLABLE)
     updated_at = models.DateField(verbose_name='Дата изменения продукта', **NULLABLE)
     product_owner = models.ForeignKey(User, on_delete=models.SET_NULL, verbose_name='product_owner', **NULLABLE)
+    is_moderated = models.BooleanField(default=False, verbose_name='Прошел модерацию')
 
     def __str__(self):
         return f'{self.name}'
