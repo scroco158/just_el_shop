@@ -20,9 +20,11 @@
                     <li class="list-group-item">Товар обновлен_____{{object.updated_at}}</li>
                   </ul>
                   <div class="card-body">
-                    <a href="{% url 'catalog:one_product' object.pk %}" class="card-link">View</a>
-                    <a href="{% url 'catalog:update_product' object.pk %}" class="card-link">Edit</a>
-                    <a href="{% url 'catalog:delete_product' object.pk %}" class="card-link">Del</a>
+                    <a href="{% url 'catalog:one_product' object.pk %}" class="btn btn btn-info">View</a>
+                      {% if perms.catalog.can_publish_product and perms.catalog.can_change_description and perms.catalog.can_change_category or user == object.product_owner%}
+                        <a href="{% url 'catalog:update_product' object.pk %}" class="btn btn-secondary">Edit</a>
+                        <a href="{% url 'catalog:delete_product' object.pk %}" class="btn btn-danger">Del</a>
+                      {% endif %}
                 </div>
               </div>
           </div>
