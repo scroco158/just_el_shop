@@ -6,6 +6,7 @@ from django.views.generic import ListView, DetailView, TemplateView, CreateView,
 
 from catalog.forms import ProductForm, VersionForm, ProductModeratorForm
 from catalog.models import Product, Version, Category
+from catalog.services import get_categories_from_cache
 
 
 # def contacts_cont(requests):
@@ -32,6 +33,9 @@ class ProductListView(ListView):  # ----_list.html
 
 class CategoryListView(ListView):
     model = Category
+
+    def get_queryset(self):
+        return get_categories_from_cache()
 
 
 class ProductDetailView(LoginRequiredMixin, DetailView):  # ---_detail.html
