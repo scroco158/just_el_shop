@@ -2,12 +2,13 @@ from django.urls import path
 from django.views.decorators.cache import cache_page
 from .apps import MainConfig
 from .views import ProductListView, ContactsView, ProductDetailView, ProductUpdateView, ProductCreateView, \
-    ProductDeleteView, VersionCreateView
+    ProductDeleteView, VersionCreateView, CategoryListView
 
 app_name = MainConfig.name
 
 urlpatterns = [
     path('', ProductListView.as_view(), name='home'),
+    path('category/', CategoryListView.as_view(), name='home'),
     path('contacts/', ContactsView.as_view(), name='contacts'),
     path('one_product/<int:pk>', cache_page(60)(ProductDetailView.as_view()), name='one_product'),
     path('update_product/<int:pk>', ProductUpdateView.as_view(), name='update_product'),

@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView, DeleteView
 
 from catalog.forms import ProductForm, VersionForm, ProductModeratorForm
-from catalog.models import Product, Version
+from catalog.models import Product, Version, Category
 
 
 # def contacts_cont(requests):
@@ -28,6 +28,10 @@ class ContactsView(TemplateView):
 
 class ProductListView(ListView):  # ----_list.html
     model = Product
+
+
+class CategoryListView(ListView):
+    model = Category
 
 
 class ProductDetailView(LoginRequiredMixin, DetailView):  # ---_detail.html

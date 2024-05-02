@@ -1,0 +1,25 @@
+{% extends 'catalog/base.html' %}
+
+     {% block content %}
+     <div class="container">
+         <div class="col-4">
+                    <div class="card">
+                          <div class="card-header">
+                              <h3 class="card-title">
+                                  Категории
+                              </h3>
+                                  <br/>
+                          </div>
+                          <div class="card-body">
+                              {% for object in object_list%}
+                                   <table class="table">
+                                       <tr>
+                                           <td>{{object.name}}</td>
+                                       </tr>
+                                   </table>
+                              {% endfor %}
+                          </div>
+                    </div>
+         </div>
+     </div>
+     {% endblock %}
